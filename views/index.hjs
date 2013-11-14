@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <title>{{title}}</title>
+    </head>
+    
+    <body>
+		<form action="/" method="POST">
+			<input type="text" name="item"></input>
+			<input type="submit">Submit</input>
+        </form>
+    </body>
+</html>
