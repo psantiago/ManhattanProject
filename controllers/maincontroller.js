@@ -9,6 +9,12 @@ exports.addentry = function (req, res) {
 };
 
 exports.postentry = function (req, res) {
+    
+    req.assert('email', 'required').notEmpty();
+    req.assert('email', 'valid email required').isEmail();
+    req.assert('name', '6 to 20 characters required').len(6, 20);
+    var mappedErrors = req.validationErrors(true);
+    console.log(mappedErrors);
     var entry = {
         name: req.body.name,
         email: req.body.email,

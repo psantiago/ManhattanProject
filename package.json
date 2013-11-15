@@ -18,7 +18,8 @@
   "dependencies": {
     "hjs": "*",
     "express": "~3.1.0",
-    "mongodb": "*"
+    "mongodb": "*",
+	"express-validator": "*"
   },
   "noAnalyze": true,
   "license": "Apache",

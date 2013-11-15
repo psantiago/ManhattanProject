@@ -1,13 +1,10 @@
-
-/**
- * Module dependencies.
- */
-
-var express = require('express')
+var util = require('util')
+  , express = require('express')
   , maincontroller = require('./controllers/maincontroller')
   , http = require('http')
   , path = require('path')
-  , mongodb = require('mongodb');
+  , mongodb = require('mongodb')
+  , expressValidator = require('express-validator');
 
 var app = express();
 var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
@@ -19,6 +16,7 @@ app.configure(function(){
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
+  app.use(expressValidator());
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
