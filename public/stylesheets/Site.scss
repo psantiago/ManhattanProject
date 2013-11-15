@@ -75,6 +75,20 @@ button::-moz-focus-inner {
     left: 0;
 }
 
+.button-manage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 1.3em 0;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+}
+
 /* Flexbox general wrapper */
 @mixin flexbox() {
     display: -webkit-box;
@@ -130,6 +144,7 @@ button::-moz-focus-inner {
 
 .writers-list {
     order: 1;
+    position: relative;
     margin: 0;
     background: darken($grey, 5%);
     width: 10em;

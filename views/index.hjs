@@ -1,71 +1,59 @@
 <!DOCTYPE html>
-<html>    
-    <head>
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
-        <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
-    </head>
-    
-    <body>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
+    <script src="/scripts/jquery-2.0.3.min.js"></script>
+    <script src="/scripts/md5.js"></script>    
+</head>
 
-        <header class="page-header">
-            <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
-        </header>
+<body>
 
-        <div class="flexbox-wrapper">
+    <header class="page-header">
+        <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+    </header>
 
-            <div class="writers-list">
-                <ul class="list">
-                    <li class="user">
-                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
-                        Arnold Triplett
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="/images/cat-002.png" /></span>
-                        Casey Neehouse
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="/images/cat-003.png" /></span>
-                        Marko Mijuskovic
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
-                        Peter Santiago
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
-                        Shawn King
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
-                        Matt Visyak
-                    </li>
-                </ul>
-            </div>
+    <div class="flexbox-wrapper">
 
-            <div class="posts-list">
+        <div class="writers-list">
+            <ul class="list">
+                {{#Users}}
+                <li class="user">
+                    <span class="img-wrapper"><img data-email="{{email}}" src="#"/></span>
+                    {{name}}
+                </li>
+                {{/Users}}
+            </ul>
 
-                <ul class="list">
+            <a class="button-manage link" href="/login"><i class="fa fa-legal"></i> Manage this shit</a>
+        </div>
 
-			        {{#Model}}
-			        <li class="posting">
-                        <span class="name">{{name}}</span>
-                        <span class="email">{{email}}</span>
-                        <span class="message">{{message}}</span>
-                        <span class="date">{{date}}</span>
-                    </li>
-                    {{/Model}}
+        <div class="posts-list">
 
-			        {{^Model}}
-			        <li>No messages in this guestbook.</li>
-			        {{/Model}}
-		        </ul>
+            <ul class="list">
 
-            </div>
+			    {{#Model}}
+			    <li class="posting">
+                    <span class="name">{{name}}</span>
+                    <span class="email">{{email}}</span>
+                    <span class="message">{{message}}</span>
+                    <span class="date">{{date}}</span>
+                </li>
+                {{/Model}}
+
+			    {{^Model}}
+			    <li>No messages in this guestbook.</li>
+			    {{/Model}}
+		    </ul>
 
         </div>
 
-        <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+    </div>
 
-    </body>
+    <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+
+    <script src="/scripts/guestbook.js"></script>    
+</body>
+
 </html>
