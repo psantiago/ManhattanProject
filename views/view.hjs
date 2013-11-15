@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>    
+    <head>
+        <title>view</title>
+    </head>
+    
+    <body>
+		{{#items}}
+            <b>{{.}}</b>
+        {{/items}}
+    </body>
+</html>
