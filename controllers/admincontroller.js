@@ -95,4 +95,11 @@ exports.deny = function(req, res) {
             res.end(req.query.id);
         });
     }
+
+};
+
+exports.logout = function(req, res) {
+    req.session.loggedin = false;
+    res.writeHead(302, { 'Location': '/' });
+    res.end();
 };
