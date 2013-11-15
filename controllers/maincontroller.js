@@ -1,6 +1,19 @@
 var mongodb = require('mongodb');
 var model = require('../models/entry');
 
+function unique(arr) {
+    var u = [];
+    if (arr == null || arr == undefined || arr.length == 0) {
+        return u;
+    }
+
+    arr.forEach(function(val) {
+        if (u.indexOf(val) === -1) u.push(val);
+    });
+
+    return u;
+}
+
 exports.index = function (req, res) {
     console.log('did I log in?' + req.session.loggedin);
     var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
@@ -9,7 +22,9 @@ exports.index = function (req, res) {
             var cursor = collection.find({ approved: true }, ['name', 'message', 'date', '']);
             cursor.sort({ date: -1 });
             cursor.toArray(function (err, docs) {
-                res.render('index', { Model: docs });
+                console.log(unique(docs.map(function(i) { return i.name; })));
+                res.render('index', { Model: docs, Users: unique(docs.map(function (i) { return i.name; })) });
+                
                 console.log(docs);
             });
         };

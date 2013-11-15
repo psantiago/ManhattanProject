@@ -1,58 +1,40 @@
 <!DOCTYPE html>
-<html>    
-    <head>
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
-        <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
-    </head>
-    
-    <body>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
+</head>
 
-        <header class="page-header">
-            <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
-        </header>
+<body>
 
-        <div class="flexbox-wrapper">
+    <header class="page-header">
+        <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+    </header>
 
-            <div class="writers-list">
-                <ul class="list">
-                    <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
-                        Arnold Triplett
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
-                        Casey Neehouse
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
-                        Marko Mijuskovic
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
-                        Peter Santiago
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
-                        Shawn King
-                    </li>
-                    <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
-                        Matt Visyak
-                    </li>
-                </ul>
-            </div>
+    <div class="flexbox-wrapper">
 
-            <ul>
-			    {{#Model}}
-			    <li>{{name}} - {{message}} - {{email}} - {{date}}</li>{{/Model}}
-			    {{^Model}}
-			    <li>No messages in this guestbook.</li>
-			    {{/Model}}
-		    </ul>
-
-            <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
-
+        <div class="writers-list">
+            <ul class="list">
+                {{#Users}}
+                <li class="user">
+                    <span class="img-wrapper"><img src="" /></span>
+                    {{.}}
+                </li>
+                {{/Users}}
+            </ul>
         </div>
-    </body>
+
+        <ul>
+            {{#Model}}
+            <li>{{name}} - {{message}} - {{email}} - {{date}}</li>{{/Model}}
+            {{^Model}}
+            <li>No messages in this guestbook.</li>
+            {{/Model}}
+        </ul>
+
+        <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+
+    </div>
+</body>
 </html>
