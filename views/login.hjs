@@ -23,7 +23,7 @@
                 <input class="single-line-textbox" type="text" name="password" placeholder="password">
                 <span class="error-message">{{password.msg}}</span>
 
-                <input class="button-login" type="submit"></input>
+                <input class="button-login" type="submit" value="submit"></input>
 		        <span class="error-message">{{login.msg}}</span>
             </form>
 
