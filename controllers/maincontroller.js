@@ -5,7 +5,7 @@ exports.index = function (req, res) {
     var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
     var client = new mongodb.Db('guestbook', server),
         test = function (err, collection) {
-            var cursor = collection.find({ approved: true }, ['name', 'message', 'date']);
+            var cursor = collection.find({ approved: true }, ['name', 'message', 'date', '']);
             cursor.sort({ date: -1 });
             cursor.toArray(function (err, docs) {
                 res.render('index', { Model: docs });
@@ -29,7 +29,6 @@ exports.postentry = function (req, res) {
     req.assert('message', '6 to 20 characters required').notEmpty().len(5, 500);
     
     var mappedErrors = req.validationErrors(true);
-    console.log(mappedErrors);
     if (mappedErrors == null) {
         var entry = model.new(
             req.body.name,
