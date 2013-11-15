@@ -2,17 +2,34 @@
 <html>
 <head>
     <title>{{title}}</title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <form action="/login" method="POST">
-        <label for="username">Username:</label><input type="text" name="username">
-        <span class="error">{{username.msg}}</span>
-        <br />
-        <label for="password">Password:</label><input type="text" name="password">
-        <span class="error">{{password.msg}}</span>
-        <br /><input type="submit"></input>
-		<span class="error">{{login.msg}}</span>
-    </form>
+
+    <div class="flexbox-wrapper center">
+
+        <div class="login-box">
+
+            <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+
+            <form action="/login" method="POST">
+                <input class="single-line-textbox" type="text" name="username" placeholder="username">
+                <span class="error-message">{{username.msg}}</span>
+
+                <input class="single-line-textbox" type="text" name="password" placeholder="password">
+                <span class="error-message">{{password.msg}}</span>
+
+                <input class="button-login" type="submit"></input>
+		        <span class="error-message">{{login.msg}}</span>
+            </form>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

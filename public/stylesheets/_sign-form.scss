@@ -6,38 +6,70 @@
     display: flex;
 }
 
-.add-page-wrapper {
+@mixin flexbox-center() {
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/* Colors */
+$blue: #3498db;
+$red: #e74c3c;
+$bluegrey: #34495e;
+
+/* Flexbox general wrapper */
+.flexbox-wrapper {
     @include flexbox();
     -webkit-flex-flow: row wrap;
 
     & > * {
         padding: 2em;
     }
+
+    &.center {
+        @include flexbox-center();
+        // This height centers the flexbox in the center of the window
+        height: 100%;
+    }
 }
 
-    .add-entry-profile {
-        order: 1;
-    }
+/* Login styles */
+.login-box {
+    margin-top: -5%;
+    width: 40%; 
+}
 
-    .add-entry-wrapper {
-        flex: 2 0px;
-        order: 2;
-        text-align: center;
-    }
+/* Add page styles */
+.add-entry-profile {
+    order: 1;
+}
 
-    .add-entry-contributors {
-        order: 3;
-    }
+.add-entry-wrapper {
+    flex: 2 0px;
+    order: 2;
+    text-align: center;
 
+    .add-entry {
+        margin: 0 auto;
+        width: 60%;
+    }
+}
+
+.add-entry-contributors {
+    order: 3;
+}
+
+/* General textbox styles */
 .single-line-textbox,.multi-line-textbox {
     position: relative;
     display: block;
     margin: 0 auto .0625em auto;
-    padding: 1em 1.3em 1em 1em;
+    padding: 1em 2% 1em 1.475%;
     background: #fff;
     border: none;
-    border-left: .3em solid #fff;
-    width: 56%;
+    border-left: .3125em solid #fff;
+    width: 96%;
     font-size: 1em;
     line-height: 1em;
 
@@ -50,21 +82,23 @@
 .error-message {
     display: block;
     margin: 0 auto .125em auto;
-    padding: 0 1.3rem;
+    padding: 0 2%;
     background: desaturate($red, 30%);
-    width: 56%;
+    width: 96%;
     font-size: .75em;
     line-height: 2.5em;
     text-align: left;
     color: #fff;
 }
 
-.button-add-message {
+/* Button styles */
+[class*="button-"] {
+    display: block;
     margin: 0 auto;
     padding: 1em 1.3em;
     background: rgba($blue, .5);
     border: none;
-    width: 60%;
+    width: 100%;
     font-size: 1em;
     line-height: 1.5em;
     text-align: left;

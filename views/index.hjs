@@ -7,20 +7,25 @@
     </head>
     
     <body>
-		<ul>
-			{{#Model}}
-			<li>{{name}} - {{message}} - {{email}} - {{date}}</li>{{/Model}}
-			{{^Model}}
-			<li>No messages in this guestbook.</li>
-			{{/Model}}
-		</ul>
 
-        <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+        <div class="flexbox-wrapper">
 
-        <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+            <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
 
-        <div class="user-post">
+            <ul>
+			    {{#Model}}
+			    <li>{{name}} - {{message}} - {{email}} - {{date}}</li>{{/Model}}
+			    {{^Model}}
+			    <li>No messages in this guestbook.</li>
+			    {{/Model}}
+		    </ul>
+
+            <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+
+            <div class="user-post">
             
+            </div>
+
         </div>
     </body>
 </html>
