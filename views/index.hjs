@@ -3,6 +3,7 @@
     <head>
         <title>{{title}}</title>
         <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
     </head>
     
     <body>
@@ -11,6 +12,12 @@
 			<input type="submit">Submit</input>
         </form>
 
-        This website is so hot.
+        <h1><i class="fa fa-pencil"></i> Manhattan Project</h1>
+
+        <button class="button-sign-guestbook" type="button">Sign the guestbook</button>
+
+        <div class="user-post">
+            
+        </div>
     </body>
 </html>
