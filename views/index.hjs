@@ -9,7 +9,7 @@
     <body>
 		<ul>
 			{{#Model}}
-			<li>{{name}}</li>{{/Model}}
+			<li>{{name}} - {{message}} - {{email}} - {{date}}</li>{{/Model}}
 			{{^Model}}
 			<li>No messages in this guestbook.</li>
 			{{/Model}}
