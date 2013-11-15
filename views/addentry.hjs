@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
     <div class="add-page-wrapper">
 
         <div class="add-entry-profile">
@@ -21,6 +20,10 @@
             <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
 
             <form action="/postentry" method="POST">
+
+            <h1><i class="fa fa-rocket"></i> Manhattan Project</h1>
+            <form action="/addentry" method="POST">
+
                 <input class="single-line-textbox" type="text" name="name" placeholder="your name">
                 <span class="error-message">{{name.msg}}</span>
 
@@ -47,6 +50,5 @@
         </div>
 
     </div>
-
 </body>
 </html>
