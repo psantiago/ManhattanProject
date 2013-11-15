@@ -1,38 +1,7 @@
-@mixin flexbox() {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-}
-
-@mixin flexbox-center() {
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
 /* Colors */
 $blue: #3498db;
 $red: #e74c3c;
 $bluegrey: #34495e;
-
-/* Flexbox general wrapper */
-.flexbox-wrapper {
-    @include flexbox();
-    -webkit-flex-flow: row wrap;
-
-    & > * {
-        padding: 1.3em;
-    }
-
-    &.center {
-        @include flexbox-center();
-        // This height centers the flexbox in the center of the window
-        height: 100%;
-    }
-}
 
 /* Login styles */
 .login-box {

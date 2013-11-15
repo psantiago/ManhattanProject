@@ -17,42 +17,55 @@
             <div class="writers-list">
                 <ul class="list">
                     <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
+                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
                         Arnold Triplett
                     </li>
                     <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
+                        <span class="img-wrapper"><img src="/images/cat-002.png" /></span>
                         Casey Neehouse
                     </li>
                     <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
+                        <span class="img-wrapper"><img src="/images/cat-003.png" /></span>
                         Marko Mijuskovic
                     </li>
                     <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
+                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
                         Peter Santiago
                     </li>
                     <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
+                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
                         Shawn King
                     </li>
                     <li class="user">
-                        <span class="img-wrapper"><img src="" /></span>
+                        <span class="img-wrapper"><img src="/images/cat-001.png" /></span>
                         Matt Visyak
                     </li>
                 </ul>
             </div>
 
-            <ul>
-			    {{#Model}}
-			    <li>{{name}} - {{message}} - {{email}} - {{date}}</li>{{/Model}}
-			    {{^Model}}
-			    <li>No messages in this guestbook.</li>
-			    {{/Model}}
-		    </ul>
+            <div class="posts-list">
 
-            <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+                <ul class="list">
+
+			        {{#Model}}
+			        <li class="posting">
+                        <span class="name">{{name}}</span>
+                        <span class="email">{{email}}</span>
+                        <span class="message">{{message}}</span>
+                        <span class="date">{{date}}</span>
+                    </li>
+                    {{/Model}}
+
+			        {{^Model}}
+			        <li>No messages in this guestbook.</li>
+			        {{/Model}}
+		        </ul>
+
+            </div>
 
         </div>
+
+        <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+
     </body>
 </html>

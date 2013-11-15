@@ -14,7 +14,9 @@
 
         <div class="login-box">
 
-            <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+            <header class="page-header inner-content">
+                <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+            </header>
 
             <form action="/login" method="POST">
                 <input class="single-line-textbox" type="text" name="username" placeholder="username">

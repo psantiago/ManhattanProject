@@ -6,6 +6,7 @@ $fonts: 'Segoe UI', Helvetica, sans-serif;
 $blue: #3498db;
 $red: #e74c3c;
 $grey: #f5f5f5;
+$orange: #e67e22;
 $bluegrey: #34495e;
 
 @mixin border-radius($radius) {
@@ -74,8 +75,43 @@ button::-moz-focus-inner {
     left: 0;
 }
 
+/* Flexbox general wrapper */
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+@mixin flexbox-center() {
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.flexbox-wrapper {
+    @include flexbox();
+    -webkit-flex-flow: row wrap;
+
+    & > * {
+        padding: 1.3em;
+    }
+
+    &.center {
+        @include flexbox-center();
+        // This height centers the flexbox in the center of the window
+        height: 100%;
+    }
+}
+
 .page-header {
     padding: 1.3em;
+
+    &.inner-content {
+        padding: 1.3em 0;
+    }
 }
 
 .page-title {
@@ -93,6 +129,7 @@ button::-moz-focus-inner {
 }
 
 .writers-list {
+    order: 1;
     margin: 0;
     background: darken($grey, 5%);
     width: 10em;
@@ -104,20 +141,27 @@ button::-moz-focus-inner {
     }
 
     .user {
+        position: relative;
+        padding-left: 2em;
         line-height: 2em;
-    }
 
-    .img-wrapper {
-        display: inline-block;
-        overflow: hidden;
-        width: 1.5em;
-        height: 1.5em;
+        .img-wrapper {
+            position: absolute;
+            top: .25em;
+            left: 0;
+            display: block;
+            overflow: hidden;
+            width: 1.5em;
+            height: 1.5em;
 
-        img {
-            background: #333;
-            border-radius: 50%;
+            img {
+                background: #333;
+                border-radius: 50%;
+                width: 100%;
+            }
         }
     }
 }
 
+@import 'posts';
 @import 'sign-form';
