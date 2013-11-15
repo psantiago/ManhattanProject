@@ -1,0 +1,34 @@
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.add-page-wrapper {
+    @include flexbox();
+    -webkit-flex-flow: row wrap;
+
+    & > * {
+        padding: 2em;
+        flex: 1 100%;
+    }
+}
+
+.add-entry-profile {
+
+}
+
+.add-entry-wrapper {
+    width:40%;
+}
+
+.add-entry-contributors {
+
+}
+
+.single-line-textbox,.multi-line-textbox {
+    background: #fff;
+    border: none;
+}

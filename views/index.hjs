@@ -12,7 +12,7 @@
 			<input type="submit">Submit</input>
         </form>
 
-        <h1><i class="fa fa-pencil"></i> Manhattan Project</h1>
+        <h1><i class="fa fa-rocket"></i> Manhattan Project</h1>
 
         <button class="button-sign-guestbook" type="button">Sign the guestbook</button>
 

@@ -2,18 +2,47 @@
 <html>
 <head>
     <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
 </head>
 
 <body>
-    <form action="/postentry" method="POST">
-        <label for="name">Name:</label><input type="text" name="name">
-        <span class="error">{{name.msg}}</span>
-        <br />
-        <label for="name">Email:</label><input type="text" name="email">
-        <span class="error">{{email.msg}}</span>
-        <br /><label for="name">Message:</label><input type="text" name="message">
-        <span class="error">{{message.msg}}</span>
-        <br /><input type="submit"></input>
-    </form>
+
+    <div class="add-page-wrapper">
+
+        <div class="add-entry-profile">
+            Shawn King
+        </div>
+
+        <div class="add-entry-wrapper">
+
+            <h1><i class="fa fa-rocket"></i> Manhattan Project</h1>
+
+            <form action="/postentry" method="POST">
+                <input class="single-line-textbox" type="text" name="name" placeholder="your name">
+                <span class="error">{{name.msg}}</span>
+
+                <input class="single-line-textbox" type="text" name="email" placeholder="email address">
+                <span class="error">{{email.msg}}</span>
+
+                <input class="multi-line-textbox" type="text" name="message" placeholder="message">
+                <span class="error">{{message.msg}}</span>
+
+                <br /><input type="submit"></input>
+            </form>
+
+        </div>
+
+        <div class="add-entry-contributors">
+            Marko Mijuskovic
+            Peter Santiago
+            Casey Neehouse
+            Matt Visyak
+            Shawn King
+            Arnold Triplett
+        </div>
+
+    </div>
+
 </body>
 </html>
