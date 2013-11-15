@@ -1,27 +1,52 @@
 ﻿<!DOCTYPE html>
-<html>    
-    <head>
-        <title>{{title}}</title>
-        <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
-        <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
-    </head>
-    
-    <body>
-		
-        <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
-		<ul>
-			{{#Model}}
-			<li>{{name}} - {{message}} - {{email}} - {{date}}
-			 {{^approved}}
-				- <a href="/approve?id={{_id}}">Approve</a>
-				{{/approved}}
-			 {{#approved}}
-				- <a href="/deny?id={{_id}}">Deny</a>
-				{{/approved}}
-			</li>{{/Model}}
-			{{^Model}}
-			<li>No messages in this guestbook.</li>
-			{{/Model}}
-		</ul>
-    </body>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
+	<script src="/scripts/jquery-2.0.3.min.js"></script>
+</head>
+
+<body>
+
+    <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+    <ul>
+        {{#Model}}
+        <li>
+            {{name}} - {{message}} - {{email}} - {{date}}
+            {{^approved}}
+            - <a data-id="{{_id}}" class="approve" href="/approve?id={{_id}}">Approve</a>
+- <a data-id="{{_id}}" class="deny" href="/deny?id={{_id}}" style="display:none">Deny</a>
+            {{/approved}}
+            {{#approved}}
+ - <a data-id="{{_id}}" class="approve" href="/approve?id={{_id}}"  style="display:none">Approve</a>
+            - <a data-id="{{_id}}" class="deny" href="/deny?id={{_id}}">Deny</a>
+            {{/approved}}
+        </li>{{/Model}}
+        {{^Model}}
+        <li>No messages in this guestbook.</li>
+        {{/Model}}
+    </ul>
+
+    <script>
+            $(function() {
+                $(".approve").click(function() {
+                    $.post($(this).attr('href'), function(res) {
+                         $("a[data-id='" + res +"'].approve").hide();
+                         $("a[data-id='" + res +"'].deny").show();
+                    });
+					return false;
+                });
+
+             $(".deny").click(function() {
+                    $.post($(this).attr('href'), function(res) {
+                        console.log(res);
+                        $("a[data-id='" + res +"'].approve").show();
+                         $("a[data-id='" + res +"'].deny").hide();
+                    });
+					return false;
+                });
+            });
+    </script>
+</body>
 </html>

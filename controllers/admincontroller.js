@@ -64,7 +64,7 @@ exports.approve = function(req, res) {
             };
         client.open(function (err) {
             client.collection('entries', test);
-            res.end('true');
+            res.end(req.query.id);
         });
     }
 };
@@ -84,7 +84,7 @@ exports.deny = function(req, res) {
             };
         client.open(function (err) {
             client.collection('entries', test);
-            res.end('true');
+            res.end(req.query.id);
         });
     }
 };

@@ -43,8 +43,8 @@ app.post('/addentry', maincontroller.postentry);
 app.get('/login', admincontroller.login);
 app.post('/login', admincontroller.verifyLogin);
 app.get('/manage', admincontroller.manage);
-app.get('/approve', admincontroller.approve);
-app.get('/deny', admincontroller.deny);
+app.post('/approve', admincontroller.approve);
+app.post('/deny', admincontroller.deny);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
