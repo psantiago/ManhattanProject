@@ -20,7 +20,7 @@
             <div class="add-entry">
 
                 <header class="page-header inner-content">
-                    <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+                    <h1 class="page-title"><a class="link" href="/"><i class="fa fa-rocket"></i> Manhattan Project</a></h1>
                 </header>
 
                 <form action="/addentry" method="POST">

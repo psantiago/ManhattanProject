@@ -11,7 +11,7 @@
 <body>
 
     <header class="page-header">
-        <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+        <h1 class="page-title"><a class="link" href="/"><i class="fa fa-rocket"></i> Manhattan Project</a></h1>
     </header>
 
     <div class="flexbox-wrapper">
@@ -51,6 +51,9 @@
 
     </div>
 
+    <a class="button-sign-guestbook link" href="/AddEntry" type="button">Sign the guestbook</a>
+
+
     <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
 	{{#loggedin}}
 	<a href="/logout">Logout</a>
@@ -58,7 +61,9 @@
     {{^loggedin}}
     <a href="/login">Login</a>
     {{/loggedin}}
-    <script src="/scripts/guestbook.js"></script>    
+
+    <script src="/scripts/guestbook.js"></script>  
+      
 </body>
 
 </html>
