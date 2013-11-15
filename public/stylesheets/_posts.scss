@@ -37,10 +37,12 @@ $orange: #e67e22;
 
     .message {
         display: block;
+        margin: .5em 0;
     }
 
     .date {
         font-size: .875em;
         font-style: italic;
+        color: darken($grey, 20%);
     }
 }

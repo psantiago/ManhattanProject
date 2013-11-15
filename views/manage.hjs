@@ -9,24 +9,50 @@
 
 <body>
 
-    <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
-    <ul>
-        {{#Model}}
-        <li>
-            {{name}} - {{message}} - {{email}} - {{date}}
-            {{^approved}}
-            - <a data-id="{{_id}}" class="approve" href="/approve?id={{_id}}">Approve</a>
-- <a data-id="{{_id}}" class="deny" href="/deny?id={{_id}}" style="display:none">Deny</a>
-            {{/approved}}
-            {{#approved}}
- - <a data-id="{{_id}}" class="approve" href="/approve?id={{_id}}"  style="display:none">Approve</a>
-            - <a data-id="{{_id}}" class="deny" href="/deny?id={{_id}}">Deny</a>
-            {{/approved}}
-        </li>{{/Model}}
-        {{^Model}}
-        <li>No messages in this guestbook.</li>
-        {{/Model}}
-    </ul>
+    <header class="page-header">
+        <h1 class="page-title"><a class="link" href="/"><i class="fa fa-rocket"></i> Manhattan Project</a></h1>
+    </header>
+
+    <div class="flexbox-wrapper">
+
+        <div class="manage-items">
+
+            <ul class="manage-list">
+                {{#Model}}
+                <li class="list-item">
+                    <span class="name">
+                        {{name}}
+                    </span>
+                    
+                    <span class="email">
+                        {{email}}
+                    </span>
+
+                    <span class="message">
+                        {{message}}
+                    </span>
+                    
+                    <span class="date">
+                        {{date}}
+                    </span>
+
+                    {{^approved}}
+                        <a data-id="{{_id}}" class="approve-button link" href="/approve?id={{_id}}">Approve</a>
+                        <a data-id="{{_id}}" class="deny-button link" href="/deny?id={{_id}}" style="display:none">Deny</a>
+                    {{/approved}}
+                    {{#approved}}
+                        <a data-id="{{_id}}" class="approve-button link" href="/approve?id={{_id}}"  style="display:none">Approve</a>
+                        <a data-id="{{_id}}" class="deny-button link" href="/deny?id={{_id}}">Deny</a>
+                    {{/approved}}
+                </li>{{/Model}}
+                {{^Model}}
+                <li class="list-item">No messages in this guestbook.</li>
+                {{/Model}}
+            </ul>
+
+        </div>
+
+    </div>
 
     <script>
             $(function() {
