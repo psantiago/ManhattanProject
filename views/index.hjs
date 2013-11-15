@@ -2,6 +2,7 @@
 <html>    
     <head>
         <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
     </head>
     
     <body>
@@ -9,5 +10,7 @@
 			<input type="text" name="item"></input>
 			<input type="submit">Submit</input>
         </form>
+
+        This website is so hot.
     </body>
 </html>
