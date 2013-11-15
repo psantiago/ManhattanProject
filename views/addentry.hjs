@@ -18,10 +18,6 @@
         <div class="add-entry-wrapper">
 
             <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
-
-            <form action="/postentry" method="POST">
-
-            <h1><i class="fa fa-rocket"></i> Manhattan Project</h1>
             <form action="/addentry" method="POST">
 
                 <input class="single-line-textbox" type="text" name="name" placeholder="your name">
