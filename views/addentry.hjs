@@ -2,14 +2,14 @@
 <html>
 <head>
     <title>{{title}}</title>
+
     <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
-
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-    <div class="add-page-wrapper">
+    <div class="flexbox-wrapper">
 
         <div class="add-entry-profile">
             Shawn King
@@ -17,20 +17,25 @@
 
         <div class="add-entry-wrapper">
 
-            <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
-            <form action="/addentry" method="POST">
+            <div class="add-entry">
 
-                <input class="single-line-textbox" type="text" name="name" placeholder="your name">
-                <span class="error-message">{{name.msg}}</span>
+                <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
 
-                <input class="single-line-textbox" type="text" name="email" placeholder="email address">
-                <span class="error-message">{{email.msg}}</span>
+                <form action="/addentry" method="POST">
 
-                <input class="multi-line-textbox" type="text" name="message" placeholder="message">
-                <span class="error-message">{{message.msg}}</span>
+                    <input class="single-line-textbox" type="text" name="name" placeholder="your name">
+                    <span class="error-message">{{name.msg}}</span>
 
-                <input class="button-add-message" type="submit" value="submit"></input>
-            </form>
+                    <input class="single-line-textbox" type="text" name="email" placeholder="email address">
+                    <span class="error-message">{{email.msg}}</span>
+
+                    <input class="multi-line-textbox" type="text" name="message" placeholder="message">
+                    <span class="error-message">{{message.msg}}</span>
+
+                    <input class="button-add-message" type="submit" value="submit"></input>
+                </form>
+            
+            </div>
 
         </div>
 
