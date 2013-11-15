@@ -16,9 +16,9 @@
     "express"
   ],
   "dependencies": {
-    "jade": "*",
-    "hogan": "*",
-    "express": "~3.1.0"
+    "hjs": "*",
+    "express": "~3.1.0",
+    "mongodb": "*"
   },
   "noAnalyze": true,
   "license": "Apache",
