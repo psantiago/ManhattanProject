@@ -5,6 +5,7 @@ $fonts: 'Segoe UI', Helvetica, sans-serif;
 /* Colors */
 $blue: #3498db;
 $red: #e74c3c;
+$grey: #f5f5f5;
 $bluegrey: #34495e;
 
 @mixin border-radius($radius) {
@@ -25,7 +26,7 @@ html, body, ul {
 }
 
 body {
-    background: #f5f5f5;
+    background: $grey;
     height: 100%;
     font-family: $fonts;
 }
@@ -48,7 +49,38 @@ button::-moz-focus-inner {
     padding: 0;
 }
 
+/* Button styles */
+[class*="button-"] {
+    display: block;
+    margin: 0 auto;
+    padding: 1em 1.3em;
+    background: rgba($blue, .5);
+    border: none;
+    width: 100%;
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: left;
+    color: #fff;
+
+    &:hover {
+        background: $blue;
+    }
+}
+
+.button-sign-guestbook {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.page-header {
+    padding: 1.3em;
+}
+
 .page-title {
+    display: block;
+    margin: 0 0 .5em 0;
     font-family: $lato;
     font-size: 1.25em;
     font-weight: 600;
@@ -57,6 +89,34 @@ button::-moz-focus-inner {
 
     [class*="fa-"] {
         font-size: 1.5em;
+    }
+}
+
+.writers-list {
+    margin: 0;
+    background: darken($grey, 5%);
+    width: 10em;
+
+    .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .user {
+        line-height: 2em;
+    }
+
+    .img-wrapper {
+        display: inline-block;
+        overflow: hidden;
+        width: 1.5em;
+        height: 1.5em;
+
+        img {
+            background: #333;
+            border-radius: 50%;
+        }
     }
 }
 

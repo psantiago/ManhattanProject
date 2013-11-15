@@ -24,7 +24,7 @@ $bluegrey: #34495e;
     -webkit-flex-flow: row wrap;
 
     & > * {
-        padding: 2em;
+        padding: 1.3em;
     }
 
     &.center {
@@ -89,22 +89,4 @@ $bluegrey: #34495e;
     line-height: 2.5em;
     text-align: left;
     color: #fff;
-}
-
-/* Button styles */
-[class*="button-"] {
-    display: block;
-    margin: 0 auto;
-    padding: 1em 1.3em;
-    background: rgba($blue, .5);
-    border: none;
-    width: 100%;
-    font-size: 1em;
-    line-height: 1.5em;
-    text-align: left;
-    color: #fff;
-
-    &:hover {
-        background: $blue;
-    }
 }
