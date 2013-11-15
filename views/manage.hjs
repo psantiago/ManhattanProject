@@ -56,19 +56,19 @@
 
     <script>
             $(function() {
-                $(".approve").click(function() {
+                $(".approve-button").click(function() {
                     $.post($(this).attr('href'), function(res) {
-                         $("a[data-id='" + res +"'].approve").hide();
-                         $("a[data-id='" + res +"'].deny").show();
+                         $("a[data-id='" + res +"'].approve-button").hide();
+                         $("a[data-id='" + res +"'].deny-button").show();
                     });
 					return false;
                 });
 
-             $(".deny").click(function() {
+             $(".deny-button").click(function() {
                     $.post($(this).attr('href'), function(res) {
                         console.log(res);
-                        $("a[data-id='" + res +"'].approve").show();
-                         $("a[data-id='" + res +"'].deny").hide();
+                        $("a[data-id='" + res +"'].approve-button").show();
+                         $("a[data-id='" + res +"'].deny-button").hide();
                     });
 					return false;
                 });
