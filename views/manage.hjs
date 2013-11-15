@@ -54,6 +54,15 @@
 
     </div>
 
+    <a class="button-sign-guestbook link" href="/AddEntry" type="button">Sign the guestbook</a>
+
+    {{#loggedin}}
+	<a class="button-user-log link" href="/logout">Logout</a>
+	{{/loggedin}}
+    {{^loggedin}}
+    <a class="button-user-log link" href="/login">Login</a>
+    {{/loggedin}}
+
     <script>
             $(function() {
                 $(".approve-button").click(function() {

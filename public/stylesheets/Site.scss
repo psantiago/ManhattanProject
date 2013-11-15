@@ -95,6 +95,22 @@ button::-moz-focus-inner {
     }
 }
 
+.button-user-log {
+    position: fixed;
+    top: .75em;
+    right: 12.75em;
+    width: 7em;
+    text-align: center;
+
+    &.link {
+        color: #fff;
+    }
+
+    &.right {
+        right: 0;
+    }
+}
+
 .link {
     text-decoration: none;
     color: inherit;
@@ -129,6 +145,10 @@ button::-moz-focus-inner {
         @include flexbox-center();
         // This height centers the flexbox in the center of the window
         height: 100%;
+    }
+
+    &.add {
+        margin-top: 5em;
     }
 }
 

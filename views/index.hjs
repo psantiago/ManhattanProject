@@ -53,13 +53,11 @@
 
     <a class="button-sign-guestbook link" href="/AddEntry" type="button">Sign the guestbook</a>
 
-
-    <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
 	{{#loggedin}}
-	<a href="/logout">Logout</a>
+	<a class="button-user-log link" href="/logout">Logout</a>
 	{{/loggedin}}
     {{^loggedin}}
-    <a href="/login">Login</a>
+    <a class="button-user-log link" href="/login">Login</a>
     {{/loggedin}}
 
     <script src="/scripts/guestbook.js"></script>  
