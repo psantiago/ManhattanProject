@@ -12,7 +12,7 @@
     <div class="flexbox-wrapper">
 
         <div class="add-entry-profile">
-            Shawn King
+            
         </div>
 
         <div class="add-entry-wrapper">
@@ -42,16 +42,24 @@
         </div>
 
         <div class="add-entry-contributors">
-            <ul>
+            <!--<ul>
                 <li>Marko Mijuskovic</li>
                 <li>Peter Santiago</li>
                 <li>Casey Neehouse</li>
                 <li>Matt Visyak</li>
                 <li>Shawn King</li>
                 <li>Arnold Triplett</li>
-            </ul>
+            </ul>-->
         </div>
 
     </div>
+
+    {{#loggedin}}
+	<a class="button-user-log link right" href="/logout">Logout</a>
+	{{/loggedin}}
+    {{^loggedin}}
+    <a class="button-user-log link right" href="/login">Login</a>
+    {{/loggedin}}
+
 </body>
 </html>
