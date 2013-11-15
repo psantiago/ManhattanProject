@@ -8,7 +8,7 @@ function unique(arr) {
     }
 
     arr.forEach(function(val) {
-        if (u.indexOf(val) === -1) u.push(val);
+        if (u.map(function(i) { return i.name; }).indexOf(val.name) === -1) u.push(val);
     });
 
     return u;
@@ -23,7 +23,7 @@ exports.index = function (req, res) {
             cursor.sort({ date: -1 });
             cursor.toArray(function (err, docs) {
                 console.log(unique(docs.map(function(i) { return i.name; })));
-                res.render('index', { Model: docs, Users: unique(docs.map(function (i) { return i.name; })) });
+                res.render('index', { Model: docs, Users: unique(docs) });
                 
                 console.log(docs);
             });

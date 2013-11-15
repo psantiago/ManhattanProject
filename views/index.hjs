@@ -4,6 +4,8 @@
     <title>{{title}}</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
     <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
+    <script src="/scripts/jquery-2.0.3.min.js"></script>
+    <script src="/scripts/md5.js"></script>    
 </head>
 
 <body>
@@ -18,8 +20,8 @@
             <ul class="list">
                 {{#Users}}
                 <li class="user">
-                    <span class="img-wrapper"><img src="" /></span>
-                    {{.}}
+                    <span class="img-wrapper"><img data-email="{{email}}" src="#" style="width:50px; height:50px" /></span>
+                    {{name}}
                 </li>
                 {{/Users}}
             </ul>
@@ -36,5 +38,6 @@
         <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
 
     </div>
+    <script src="/scripts/guestbook.js"></script>    
 </body>
 </html>
