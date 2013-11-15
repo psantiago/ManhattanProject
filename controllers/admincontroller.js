@@ -32,6 +32,59 @@ exports.manage = function(req, res) {
     if (!req.session.loggedin) {
         res.render('login', { title: 'Manhattan Project | Login' });
     } else {
-        res.render('manage', { title: 'Manhattan Project | Manage' });
+        var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
+        var client = new mongodb.Db('guestbook', server),
+            test = function(err, collection) {
+                var cursor = collection.find({}, ['name', 'message', 'date', '']);
+                cursor.sort({ date: -1 });
+                cursor.toArray(function(err, docs) {
+                    res.render('manage', { title: 'Manhattan Project | Manage', Model: docs });
+                    console.log(docs);
+                });
+            };
+        client.open(function(err) {
+            client.collection('entries', test);
+        });
     }
-}
+};
+
+exports.approve = function(req, res) {
+    if (!req.session.loggedin) {
+        res.render('login', { title: 'Manhattan Project | Login' });
+    } else {
+        var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
+        var client = new mongodb.Db('guestbook', server),
+            test = function (err, collection) {
+                console.log(req.query.id);
+                collection.update({ '_id': new mongodb.ObjectID(req.query.id) }, { $set: { approved: true } }, { safe: true },
+                    function(err) {
+                        if (err) console.warn(err.message);
+                        else console.log('successfully updated');
+                    });
+            };
+        client.open(function (err) {
+            client.collection('entries', test);
+            res.end('true');
+        });
+    }
+};
+
+exports.deny = function(req, res) {
+    if (!req.session.loggedin) {
+        res.render('login', { title: 'Manhattan Project | Login' });
+    } else {
+        var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
+        var client = new mongodb.Db('guestbook', server),
+            test = function (err, collection) {
+                collection.update({ '_id': new mongodb.ObjectID(req.query.id) }, { $set: { approved: false } }, { safe: true },
+                    function (err) {
+                        if (err) console.warn(err.message);
+                        else console.log('successfully updated');
+                    });
+            };
+        client.open(function (err) {
+            client.collection('entries', test);
+            res.end('true');
+        });
+    }
+};

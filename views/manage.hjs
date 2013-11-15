@@ -1,1 +1,27 @@
-﻿
+﻿<!DOCTYPE html>
+<html>    
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/Site.css" />
+        <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome/font-awesome.css" />
+    </head>
+    
+    <body>
+		
+        <h1 class="page-title"><i class="fa fa-rocket"></i> Manhattan Project</h1>
+		<ul>
+			{{#Model}}
+			<li>{{name}} - {{message}} - {{email}} - {{date}}
+			 {{^approved}}
+				- <a href="/approve?id={{_id}}">Approve</a>
+				{{/approved}}
+			 {{#approved}}
+				- <a href="/deny?id={{_id}}">Deny</a>
+				{{/approved}}
+			</li>{{/Model}}
+			{{^Model}}
+			<li>No messages in this guestbook.</li>
+			{{/Model}}
+		</ul>
+    </body>
+</html>
