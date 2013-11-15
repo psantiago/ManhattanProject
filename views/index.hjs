@@ -7,14 +7,17 @@
     </head>
     
     <body>
-		<form action="/" method="POST">
-			<input type="text" name="item"></input>
-			<input type="submit">Submit</input>
-        </form>
+		<ul>
+			{{#Model}}
+			<li>{{name}}</li>{{/Model}}
+			{{^Model}}
+			<li>No messages in this guestbook.</li>
+			{{/Model}}
+		</ul>
 
         <h1><i class="fa fa-rocket"></i> Manhattan Project</h1>
 
-        <button class="button-sign-guestbook" type="button">Sign the guestbook</button>
+        <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
 
         <div class="user-post">
             
