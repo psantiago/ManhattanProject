@@ -47,11 +47,9 @@ app.post('/approve', admincontroller.approve);
 app.post('/deny', admincontroller.deny);
 app.get('/logout', admincontroller.logout);
 app.get('/public/*', function (req, res) { res.sendfile(__dirname + '/public/' + req.url); });
-app.get('/404', function (req, res) {
-    res.render('404');
-});
 app.get('*', function (req, res) {
-    res.writeHead(404, { 'Location': '/404' });
+    res.status(404);
+    res.render('404');
     res.end();
 });
 
