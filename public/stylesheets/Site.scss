@@ -155,6 +155,14 @@ button::-moz-focus-inner {
 .page-header {
     padding: 1.3em;
 
+        &.title-white {
+            color: #fff;
+
+            .page-title {
+                color: #fff;
+            }
+        }
+
     &.inner-content {
         padding: 1.3em 0;
     }
@@ -270,6 +278,19 @@ button::-moz-focus-inner {
     &:hover {
         background: $blue;
     }
+}
+
+.error-page-bg {
+    background: url('../images/aBomb.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.center-text {
+    font-size: 10em;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    text-shadow: rgba(0,0,0,.5) .025em .025em;
 }
 
 @import 'posts';
