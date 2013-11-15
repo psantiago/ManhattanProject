@@ -6,7 +6,13 @@ var adminUser = {
 };
 
 exports.login = function (req, res) {
-    res.render('login', { title: 'Manhattan Project | Login' });
+    if (req.session.loggedin) {
+        res.writeHead(302, { 'Location': '/manage' });
+        res.end();
+    } else {
+        res.render('login', { title: 'Manhattan Project | Login' });
+    }
+    
 };
 
 exports.verifyLogin = function (req, res) {
@@ -17,12 +23,14 @@ exports.verifyLogin = function (req, res) {
     if (mappedErrors == null) {
         if (req.body.username == adminUser.username && req.body.password == adminUser.password) {
             req.session.loggedin = true;
+            res.writeHead(302, {'Location': '/manage'});
+            res.end();
         } else {
             mappedErrors = {};
             mappedErrors.login = { param: 'login', msg: 'Invalid login' };
             req.session.loggedin = false;
+            res.render('login', mappedErrors);
         }
-        res.render('login',  mappedErrors);
     } else {
         res.render('login',  mappedErrors);
     }
