@@ -52,7 +52,12 @@
     </div>
 
     <a class="button-sign-guestbook" href="/AddEntry" type="button">Sign the guestbook</a>
+	{{#loggedin}}
 	<a href="/logout">Logout</a>
+	{{/loggedin}}
+    {{^loggedin}}
+    <a href="/login">Login</a>
+    {{/loggedin}}
     <script src="/scripts/guestbook.js"></script>    
 </body>
 

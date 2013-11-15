@@ -16,17 +16,17 @@ app.configure(function () {
     app.set('view engine', 'hjs');
     app.use(express.favicon());
     app.use(express.logger('dev'));
-
-    //create db middleware
-    //app.use(function (req, res, next) {
-    //    req.db = db;
-    //    next();
-    //});
-
     app.use(express.bodyParser());
     app.use(express.cookieParser());
     app.use(express.cookieSession({ secret: 'imasecret' }));
     app.use(expressValidator());
+    
+    //create db middleware
+    app.use(function (req, res, next) {
+        res.locals.loggedin = req.session.loggedin;
+        next();
+    });
+
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
