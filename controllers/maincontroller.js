@@ -2,7 +2,8 @@ var mongodb = require('mongodb');
 var model = require('../models/entry');
 
 exports.index = function (req, res) {
-    var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {});
+    console.log('did I log in?' + req.session.loggedin);
+    var server = new mongodb.Server("itsweb-opserver.hs.wvu-ad.wvu.edu", 27017, {safe:false});
     var client = new mongodb.Db('guestbook', server),
         test = function (err, collection) {
             var cursor = collection.find({ approved: true }, ['name', 'message', 'date', '']);
